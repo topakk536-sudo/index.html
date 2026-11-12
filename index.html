@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои проекты и сервисы</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: #111111;
+        }
+        .main-section {
+            flex: 1;
+            background: linear-gradient(125deg, #f36319 0%, #f7871a 48%, #fcb71c 100%);
+            padding: 60px 20px 50px;
+        }
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+        }
+        .main-title {
+            font-family: 'Roboto', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 44px;
+        }
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 16px;
+            padding: 32px 26px 30px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+        }
+        .card-num {
+            font-family: 'Roboto', sans-serif;
+            font-size: 44px;
+            font-weight: 700;
+            color: #f1c50e;
+            line-height: 1.1;
+            margin-bottom: 14px;
+        }
+        .card-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+        .card-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #444444;
+            margin-bottom: 24px;
+        }
+        .card-link {
+            margin-top: auto;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #111111;
+            border-bottom: 2px solid #f1c50e;
+            padding-bottom: 3px;
+        }
+        .card-special {
+            grid-column: 1 / -1;
+            border: 3px solid #f1c50e;
+            cursor: pointer;
+            background: #fffdf5;
+        }
+        .footer {
+            background-color: #2b2b2b;
+            color: #cccccc;
+            text-align: center;
+            padding: 24px 15px;
+            font-size: 13px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.82);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+        .modal.open {
+            display: flex;
+        }
+        .modal-box {
+            position: relative;
+            max-width: 460px;
+            width: auto;
+            background: #ffffff;
+            padding: 10px;
+            border-radius: 14px;
+        }
+        .modal-box img {
+            max-width: 100%;
+            max-height: 80vh;
+            width: auto;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+        }
+        .modal-close {
+            position: absolute;
+            top: -14px;
+            right: -14px;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: none;
+            background: #ffffff;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+        }
+        @media (max-width: 900px) {
+            .container { max-width: 680px; }
+            .cards-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 576px) {
+            .main-title { font-size: 30px; }
+            .container { max-width: 360px; }
+            .cards-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <main class="main-section">
+        <div class="container">
+            <h1 class="main-title">Цифровая экосистема и сервисы</h1>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-num">01</div>
+                    <h2 class="card-heading">Музыка и треки</h2>
+                    <p class="card-text">Подборки свежих релизов, личные плейлисты без рекламы и быстрый поиск любимых битов в высоком качестве.</p>
+                    <a href="#" class="card-link">СЛУШАТЬ</a>
+                </div>
+                <div class="card">
+                    <div class="card-num">02</div>
+                    <h2 class="card-heading">Мой кошелёк</h2>
+                    <p class="card-text">Удобный контроль расходов, мгновенные переводы без комиссии и хранение бонусных карт в одном месте.</p>
+                    <a href="#" class="card-link">ОТКРЫТЬ БАЛАНС</a>
+                </div>
+                <div class="card">
+                    <div class="card-num">03</div>
+                    <h2 class="card-heading">Веб-студия</h2>
+                    <p class="card-text">Разработка современных лендингов, адаптивная вёрстка под любые экраны и проработка удобного интерфейса.</p>
+                    <a href="#" class="card-link">СМОТРЕТЬ КЕЙСЫ</a>
+                </div>
+                <div class="card">
+                    <div class="card-num">04</div>
+                    <h2 class="card-heading">Облачный диск</h2>
+                    <p class="card-text">Безопасное хранение фотографий, рабочих архивов и документов с быстрым доступом с телефона или ПК.</p>
+                    <a href="#" class="card-link">ПЕРЕЙТИ В ФАЙЛЫ</a>
+                </div>
+                <div class="card">
+                    <div class="card-num">05</div>
+                    <h2 class="card-heading">Игровой хаб</h2>
+                    <p class="card-text">Статистика матчей, поиск тиммейтов на вечер и актуальное расписание турниров по популярным дисциплинам.</p>
+                    <a href="#" class="card-link">В КАТАЛОГ</a>
+                </div>
+                <div class="card">
+                    <div class="card-num">06</div>
+                    <h2 class="card-heading">Умные заметки</h2>
+                    <p class="card-text">Трекер задач на день, списки идей и быстрые напоминания, которые синхронизируются между всеми устройствами.</p>
+                    <a href="#" class="card-link">СОЗДАТЬ ЗАПИСЬ</a>
+                </div>
+                <div class="card card-special" id="valyaCard">
+                    <div class="card-num">07</div>
+                    <h2 class="card-heading">ВАЛЯ КАРНАВАЛ</h2>
+                    <p class="card-text">Эксклюзивный раздел — нажми на карточку, чтобы открыть фотографию.</p>
+                    <a href="#" class="card-link">ПОСМОТРЕТЬ ФОТО</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>© 2026 Личный веб-проект. Все права защищены.</p>
+    </footer>
+    <div class="modal" id="photoModal">
+        <div class="modal-box">
+            <button class="modal-close" id="closeModal">✕</button>
+            <img referrerpolicy="no-referrer" src="https://upload.wikimedia.org/wikipedia/commons/4/47/%D0%92%D0%B0%D0%BB%D1%8F_%D0%9A%D0%B0%D1%80%D0%BD%D0%B0%D0%B2%D0%B0%D0%BB_%282%29_%28%D0%91%D0%B5%D0%BB%D1%8B%D0%B5_%D0%BD%D0%BE%D1%87%D0%B8_%D0%A1%D0%B0%D0%BD%D0%BA%D1%82-%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3%D0%B0_-_2024%2C_%D0%B4%D0%B5%D0%BD%D1%8C_1%29.jpg" alt="Валя Карнавал">
+        </div>
+    </div>
+    <script>
+        const card = document.getElementById('valyaCard');
+        const modal = document.getElementById('photoModal');
+        const closeBtn = document.getElementById('closeModal');
+        card.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.classList.add('open');
+        });
+        closeBtn.addEventListener('click', () => modal.classList.remove('open'));
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) modal.classList.remove('open');
+        });
+    </script>
+</body>
+</html>
